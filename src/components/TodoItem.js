@@ -5,14 +5,20 @@ export default class TodoItem extends Component {
     return (
       <div className="border-b border-gray-200 py-4 px-8">
         <div className="relative hover-trigger">
-          <label className="inline-flex items-center mt-3">
+          <label className="inline-flex items-center mt-3 ">
             <input
               type="checkbox"
-              className="form-checkbox h-5 w-5 text-teal-600"
+              className="form-checkbox h-5 w-5 text-red-600 bg-red-300"
               onChange={() => this.props.check(this.props.index)}
               checked={this.props.item.isChecked}
             />
-            <span className="ml-2 text-gray-700">
+            <span
+              className={`ml-6 ${
+                this.props.item.isChecked
+                  ? "line-through text-gray-400"
+                  : "text-gray-500"
+              }`}
+            >
               {this.props.item.content}
             </span>
           </label>
